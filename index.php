@@ -47,7 +47,9 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 
 extract($_GET);
 
-if ((strlen($name) > 3) && str_contains($mail, '@') && str_contains($mail, '.') && is_numeric($age)) {
+$pattern = '/(?<=\@).*\./';
+
+if ((strlen($name) > 3) && preg_match($pattern, $mail) && is_numeric($age)) {
     echo '<div>Accesso riuscito</div>';
 } else {
     echo '<div>Accesso negato</div>';
