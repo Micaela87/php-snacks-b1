@@ -114,11 +114,82 @@ foreach ($paragraphsArr as &$value) {
 ## Snack 6
 
 Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
+*/
 
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
+
+$teachers = $db['teachers'];
+$pm = $db['pm'];
+
+?>
+
+<div style="background-color: grey">
+    <?php
+        foreach($teachers as &$value) {
+            echo '<p>' . $value['name'] . ', ' . $value['lastname'] . '</p>';
+        }
+    ?>
+</div>
+<div style="background-color: green">
+    <?php
+        foreach($pm as &$value) {
+            echo '<p>' . $value['name'] . ', ' . $value['lastname'] . '</p>';
+        }
+    ?>
+</div>
+
+<?php
+
+/*
 ## Snack 7
 
 Creare un array contenente qualche alunno di un'ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno.
 */
+
+$dbStudents = [
+    [
+        'name' => 'Roberto',
+        'lastname' => 'Marazzini',
+    ],
+    [
+        'name' => 'Federico',
+        'lastname' => 'Pellegrini'
+    ]
+];
+
+foreach($dbStudents as &$value) {
+    $value['ratings'] = [];
+
+    while (count($value['ratings']) < 6) {
+        $value['ratings'][] = rand(4, 10);
+    }
+
+    $value['averageRating'] = ceil(array_sum($value['ratings']) / count($value['ratings']));
+
+    echo '<p>' . $value['name'] . ' ' . $value['lastname'] . '; Media: ' . $value['averageRating'] . '</p>';
+}
+
 ?>
 </body>
 
