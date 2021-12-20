@@ -100,7 +100,17 @@ while (count($randomNumbers) < 15) {
 ## Snack 5
 
 Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
+*/
 
+$portanza = "La portanza è definita come la forza aerodinamica agente in direzione perpendicolare alla direzione del vento che investe il profilo e permette al velivolo di alzarsi in volo. Essa è positiva se orientata verso l'alto. La portanza è generata dalla differenza di pressione fra la parte inferiore e quella superiore di un velivolo. Allo sviluppo della portanza può contribuire tutto il velivolo, ma il contributo maggiore è dovuto all'ala. La particolare forma del profilo alare permette di avere una differenza di velocità del fluido fra l'estradosso o dorso (parte superiore dell'ala) e l'intradosso o ventre (parte inferiore dell'ala). Conoscendo il coefficiente di portanza di un profilo (o di un corpo) è possibile risalire alla portanza";
+
+$paragraphsArr = explode('. ', $portanza);
+
+foreach ($paragraphsArr as &$value) {
+    echo '<p>' . $value . '</p>';
+}
+
+/*
 ## Snack 6
 
 Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
